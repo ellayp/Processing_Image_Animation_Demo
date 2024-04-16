@@ -10,6 +10,10 @@ public class Sketch extends PApplet {
   float fltMeteorX = 0; // Declares and initializes in the same line
   float fltMeteorY = 0; // Declares and initializes in the same line
 
+  // Meteor speed variables
+  float fltXSpeed = 1;
+  float fltYSpeed = 1;
+
   // Define colours
   int black = color(0);
   int white = color(255);
@@ -45,12 +49,24 @@ public class Sketch extends PApplet {
     // image (imgMeteor, mouseX, mouseY);
     image (imgMeteor, fltMeteorX, fltMeteorY);
 
-    fltMeteorX += 1;
-    fltMeteorY += 1;
+    //fltMeteorX += 1;
+    //fltMeteorY += 1;
 
-    if (fltMeteorX > width - imgMeteor.width || fltMeteorY > height - imgMeteor.height) {
-      fltMeteorX = 0;
-      fltMeteorY = 0;
+    //if (fltMeteorX > width - imgMeteor.width || fltMeteorY > height - imgMeteor.height) {
+      //fltMeteorX = 0;
+      //fltMeteorY = 0;
+    //}
+
+    // BOUNCE
+    fltMeteorX += fltXSpeed;
+    fltMeteorY += fltYSpeed;
+
+    if (fltMeteorX > width - imgMeteor.width || fltMeteorX < 0) {
+      fltXSpeed *= -1;
+    }
+
+    if (fltMeteorY > height - imgMeteor.height || fltMeteorY < 0) {
+      fltYSpeed *= -1;
     }
 
     // draw missile and move
