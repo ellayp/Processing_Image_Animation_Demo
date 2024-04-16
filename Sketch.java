@@ -42,8 +42,16 @@ public class Sketch extends PApplet {
     
     // draw meteor and move
     // image (imgMeteor, 0, 0);
-    // image (imgMeteor, fltMeteorX, fltMeteorY);
-    image (imgMeteor, mouseX, mouseY);
+    // image (imgMeteor, mouseX, mouseY);
+    image (imgMeteor, fltMeteorX, fltMeteorY);
+
+    fltMeteorX += 1;
+    fltMeteorY += 1;
+
+    if (fltMeteorX > width - imgMeteor.width || fltMeteorY > height - imgMeteor.height) {
+      fltMeteorX = 0;
+      fltMeteorY = 0;
+    }
 
     // draw missile and move
 
